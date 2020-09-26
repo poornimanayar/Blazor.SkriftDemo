@@ -1,0 +1,32 @@
+﻿<h1>Where am I?</h1>
+
+<div class="row">
+    <div class="form-group">
+        <label for="Latitude">Latitude</label>
+        <input type="text" class="form-control" @bind="@Latitude" name="Latitude" id="Latitude" />
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+        <label for="Longitude">Longitude</label>
+        <input type="text" class="form-control" @bind="@Longitude" name="Longitude" id="Longitude" />
+    </div>
+</div>
+
+<div class="row">
+    <button class="btn btn-primary" @onclick="CheckWhereAmI">Check where am I</button>
+</div>
+
+@if (_whereAmIResponse != null)
+{
+    <div class="row">
+        @if (_whereAmIResponse.IsWater)
+        {
+            <h2><em>I am in water!</em></h2>
+        }
+        else
+        {
+            <h2><em>I am on land!</em></h2>
+        }
+    </div>
+}
